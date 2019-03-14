@@ -1,7 +1,11 @@
 ---
 services: docker
 
+before_install:
+  - sudo apt-get update -y
+
 install:
+  - pip install requests[security]
   - pip install ansible
 
 script:
