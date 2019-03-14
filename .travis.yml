@@ -3,8 +3,6 @@ services: docker
 
 install:
   - bundle install
-  - ansible-galaxy install --roles-path ./roles/ geerlingguy.redis
-  - ansible-galaxy install --roles-path ./roles/ andrewrothstein.openresty
 
 before_script:
   - python --version
