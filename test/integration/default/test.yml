@@ -1,4 +1,5 @@
 ---
 - hosts: localhost
-  tasks:
-    - shell: whoami
+  roles:
+    - geerlingguy.redis
+    - andrewrothstein.openresty

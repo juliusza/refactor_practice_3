@@ -2,13 +2,13 @@
 services: docker
 
 install:
-  - sudo pip install ansible
   - bundle install
+  - ansible-galaxy install --roles-path ./roles/ geerlingguy.redis
+  - ansible-galaxy install --roles-path ./roles/ andrewrothstein.openresty
 
 before_script:
   - python --version
   - ruby --version
-  - ansible --version
 
 script:
   - kitchen test
