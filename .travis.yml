@@ -5,9 +5,9 @@ before_install:
   - sudo apt-get update -y
 
 install:
-  - pip install requests[security]
-  - pip install ansible
+  - sudo pip install ansible
 
 script:
   - python --version
   - ruby --version
+  - ansible --version
