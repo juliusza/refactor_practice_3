@@ -5,7 +5,10 @@ install:
   - sudo pip install ansible
   - bundle install
 
-script:
+before_script:
   - python --version
   - ruby --version
   - ansible --version
+
+script:
+  - kitchen test
