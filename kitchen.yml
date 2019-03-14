@@ -17,6 +17,7 @@ suites:
     provisioner:
       name: ansible_playbook
       playbook: test/integration/default/test.yml
+      roles_path: roles
     additional_copy_path:
       - "."
     requirements_path: requirements.yml
