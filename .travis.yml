@@ -1,0 +1,9 @@
+---
+services: docker
+
+install:
+  - pip install ansible
+
+script:
+  - python --version
+  - ruby --version
