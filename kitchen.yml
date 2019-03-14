@@ -12,6 +12,6 @@ platforms:
 
 suites:
   - name: default
-  provisioner:
-    name: ansible_playbook
-    playbook: test/integration/default/test.yml
+    provisioner:
+      name: ansible_playbook
+      playbook: test/integration/default/test.yml
