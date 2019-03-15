@@ -1,4 +1,9 @@
 ---
 dependencies:
   - geerlingguy.redis
-  - andrewrothstein.openresty
+  - role: andrewrothstein.openresty
+    luarocks_install:
+      - luasec
+      - luajson
+      - lua-resty-http
+      - lua-resty-redis

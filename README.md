@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/juliusza/refactor_practice_3.svg)](https://travis-ci.org/juliusza/refactor_practice_3)
 
-I'll do everything as described, except that I want to use docker driver which will work with travis CI.
+This is quite a challenge, because kitchen software stack is unmaintained for several years now. I'll do everything as described, except that I want to use docker driver which will work with travis CI.
 
 # Answers
 

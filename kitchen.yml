@@ -2,7 +2,7 @@
 driver:
   name: docker
   #socket: tcp://localhost:2375
-  forward: 80:8800
+  forward: 8800:80
 
 provisioner:
   name: ansible
