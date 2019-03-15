@@ -1,6 +1,8 @@
 ---
 driver:
   name: docker
+  #socket: tcp://localhost:2375
+  forward: 80:8800
 
 provisioner:
   name: ansible
@@ -16,8 +18,9 @@ suites:
   - name: default
     provisioner:
       name: ansible_playbook
-      playbook: test/integration/default/test.yml
+      playbook: test/integration/default/provision.yml
       roles_path: roles
-    additional_copy_path:
-      - "."
-    requirements_path: /tmp/kitchen/requirements.yml
+      requirements_path: requirements.yml
+    verifier:
+      name: shell
+      command: "bash -c 'bats verify.bats'"

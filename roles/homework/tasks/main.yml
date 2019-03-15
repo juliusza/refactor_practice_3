@@ -1,0 +1,9 @@
+---
+- copy: src=openresty-init dest=/etc/init.d/openresty mode=0755
+  notify: restart openresty
+
+- service: name=redis-server enabled=yes state=started
+- service: name=openresty enabled=yes state=started
+
+- name: insert dummy data into redis
+  shell: redis-cli set hostinger rocks

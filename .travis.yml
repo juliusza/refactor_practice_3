@@ -3,10 +3,13 @@ services: docker
 
 install:
   - bundle install
+  - git clone https://github.com/sstephenson/bats.git /tmp/bats
+  - cd /tmp/bats && ./install.sh /usr/local
 
 before_script:
   - python --version
   - ruby --version
+  - bats --version
 
 script:
   - kitchen test
