@@ -1,0 +1,5 @@
+Question 1
+A service daemon in production stopped working and not responding to network requests. You received alert about the health of the service and logged in the affected node to troubleshoot. Please describe in detail what actions would you do and how are you going to do that.
+
+Answer 1
+Ideally we'd have a system that automatically restarts service from a clean image. I'd start with checking service status (systemctl) and looking at service logs (/var/log/). Also a quick check on system memory and load (top). Further actions depend on this initial diagnosis and are too numerous to be described here.

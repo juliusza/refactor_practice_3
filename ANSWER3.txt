@@ -1,0 +1,15 @@
+Question 3
+You have one MySQL instance which becomes saturated. Please describe in as much detail as you can how and what technologies would you use to scale MySQL service to handle thousands of requests.
+
+Answer 3
+In order of preference:
+
+1. optimize existing queries to select things more efficiently
+2. add indexes if missing
+3. look out for table locking that puts queries into a queue
+4. look at config file to optimize for storage type (SSD or HDD?) and for particular HW (RAM, CPU count)
+5. put more HW at the task: more CPUs, more RAM, faster storage
+
+now when all these options are exhausted or insufficient:
+6. replicate master to one or more slave nodes and add load balancing (this can also help with HA)
+7. add caching layer as a 3rd party solution, or in the application

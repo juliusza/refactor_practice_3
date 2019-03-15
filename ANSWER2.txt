@@ -1,0 +1,19 @@
+Question 2
+A user on a Linux machine enters curl https://www.hostinger.com. Please describe in as much detail as you can the lifecycle of the command and what happens in the kernel, over the network, and on Hostinger servers before the command completes.
+
+Answer 2
+I'm really not a kernel guru and there are plenty of things going on in there. Starting with loading executable and allocating memory, then opening TCP socket, waiting for CPU time, waiting for storage. I'll focus on describing this at a higher level though.
+
+--- curl client ---
+1. curl loaded into memory
+2. curl does DNS request to get A record for www.hostinger.com
+3. opens TCP over IP to destination addr (SYN,SYN-ACK,ACK)
+4. SSL handshake with host authenticity check
+5. sends headers GET https://www.hostinger.com
+--- remote server ---
+6. receives GET request
+7. http server tries to match the request, lookup in the cache or file system most likely
+8. if page is found, sends 200 response
+--- curl client ---
+9. receives HTTP header + body
+10. shows response to user
