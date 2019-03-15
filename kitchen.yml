@@ -20,4 +20,4 @@ suites:
       roles_path: roles
     additional_copy_path:
       - "."
-    requirements_path: requirements.yml
+    requirements_path: /tmp/kitchen/requirements.yml
