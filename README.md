@@ -15,3 +15,10 @@ See ANSWER[n].txt files
 * Got this setup working on Windows. No need to invoke travis every time I need to test
 * Add shell verifier that invokes bats framework
 * Add openresty init script for docker and make sure it is started
+* Add a failing test for my custom lua endpoint
+* Create lua block for connecting to redis
+
+# TODO
+yet unsolved issues:
+* is there a way to allocate different ports for different platforms for verification tests ? Can't test more than one platform right now.
+* docker does work with upstart/systemd init scripts, redis wont start on redhat based systems
