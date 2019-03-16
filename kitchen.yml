@@ -1,17 +1,15 @@
 ---
 driver:
   name: docker
-  #socket: tcp://localhost:2375
-  forward: 8800:80
+ # socket: tcp://localhost:2375
 
 provisioner:
   name: ansible
   hosts: localhost
-  require_chef_for_busser: false
-  require_ruby_for_busser: false
 
 platforms:
   - name: ubuntu-16.04
+  - name: debian-8
 
 suites:
   - name: default
@@ -20,6 +18,6 @@ suites:
       playbook: test/integration/default/provision.yml
       roles_path: roles
       requirements_path: requirements.yml
+      ansible_vault_password_file: vault.passwd
     verifier:
-      name: shell
-      command: "bash -c 'bats verify.bats'"
+      name: busser

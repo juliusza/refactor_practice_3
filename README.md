@@ -12,13 +12,15 @@ See ANSWER[n].txt files
 
 * Initialize test pipeline using travis, docker and ansible kitchen
 * Add Redis and OpenResty roles from ansible galaxy
-* Got this setup working on Windows. No need to invoke travis every time I need to test
+* Got this setup working on my Windows dev env. No need to invoke travis every time I need to test
 * Add shell verifier that invokes bats framework
 * Add openresty init script for docker and make sure it is started
 * Add a failing test for my custom lua endpoint
 * Create lua block for connecting to redis
+* Set redis password and store it in vault
+* Found a way to integrate bats tests into kitchen properly
 
 # TODO
 yet unsolved issues:
-* is there a way to allocate different ports for different platforms for verification tests ? Can't test more than one platform right now.
 * docker does work with upstart/systemd init scripts, redis wont start on redhat based systems
+* I hate storing vault password in plain text, but this is a limitation of the kitchen framework. In real world I'd supply password via travis env variables.

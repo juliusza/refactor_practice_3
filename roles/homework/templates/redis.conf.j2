@@ -1,0 +1,28 @@
+location /redis {
+    content_by_lua_block {
+        function show_err(msg, err)
+            ngx.status = 500
+            ngx.say(msg, err)
+        end
+
+        local redis = require "resty.redis"
+        local red = redis:new()
+
+        local ok, err = red:connect("127.0.0.1", 6379)
+        if not ok then
+            return show_err("failed to connect: ", err)
+        end
+
+        local res, err = red:auth("{{ redis_password }}")
+        if not res then
+            return show_err("failed to authenticate: ", err)
+        end
+
+        local res, err = red:get("hostinger")
+        if not res then
+            return show_err("failed to get from redis: ", err)
+        end
+
+        ngx.say(res)
+    }
+}

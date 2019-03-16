@@ -2,13 +2,13 @@
 - lineinfile:
     dest: "/usr/local/openresty/nginx/conf/nginx.conf"
     line: "include /usr/local/openresty/nginx/conf/locations.d/*;"
-    insertbefore: "location / {"
+    insertfater: "include /usr/local/openresty/nginx/conf/locations.d/*;"
     state: present
   notify: restart openresty
 
 - file: path=/usr/local/openresty/nginx/conf/locations.d state=directory
 
-- copy: src=redis.conf dest=/usr/local/openresty/nginx/conf/locations.d/redis.conf
+- template: src=redis.conf.j2 dest=/usr/local/openresty/nginx/conf/locations.d/redis.conf
   notify: restart openresty
 
 - copy: src=openresty-init dest=/etc/init.d/openresty mode=0755
@@ -18,4 +18,4 @@
 - service: name=openresty enabled=yes state=started
 
 - name: insert dummy data into redis
-  shell: redis-cli set hostinger rocks
+  shell: redis-cli -a {{ redis_password }} set hostinger rocks

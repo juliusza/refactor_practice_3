@@ -1,6 +1,7 @@
 ---
 dependencies:
-  - geerlingguy.redis
+  - role: geerlingguy.redis
+    redis_requirepass: "{{ redis_password }}"
   - role: andrewrothstein.openresty
     luarocks_install:
       - luasec
