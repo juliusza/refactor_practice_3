@@ -2,7 +2,7 @@
 - lineinfile:
     dest: "/usr/local/openresty/nginx/conf/nginx.conf"
     line: "include /usr/local/openresty/nginx/conf/locations.d/*;"
-    insertafter: "include /usr/local/openresty/nginx/conf/locations.d/*;"
+    insertafter: "#access_log  logs/host.access.log  main;"
     state: present
   notify: restart openresty
 

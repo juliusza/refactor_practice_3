@@ -2,6 +2,7 @@
 
 teardown () {
     echo "output = $output"
+    echo "stderr = $stderr"
 }
 
 BASE_URL=http://localhost/
