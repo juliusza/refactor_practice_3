@@ -1,7 +1,6 @@
 ---
 driver:
   name: docker
- # socket: tcp://localhost:2375
 
 provisioner:
   name: ansible
